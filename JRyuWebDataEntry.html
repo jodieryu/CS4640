@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    	<title>CS 4640: Assignment 2 Web Data Entry</title>
+
+    	<script type="text/javascript">
+    		function showDiv(elem) {
+    			if(elem.value == 1) {
+    				document.getElementById('hidden_div').style.display = "block";
+    			} 
+    			if(elem.value == 2) {
+    				document.getElementById('hidden_div').style.display = "block";
+    			}
+    			else {
+    				document.getElementById('hidden_div').style.display = "none";
+    			}
+    		}
+    	</script>
+	</head>
+
+	<body>
+		<div class="questionType">
+			<center> 
+				<h2> Choose Question Type</h2> 
+				<p> Choose the type of question you would like to create </p>
+
+				<strong><p>Question Type:</p></strong>
+				<select id="test" name="QuestionType" onchange="showDiv(this)" > 
+  					<option value="1">Short-Answer</option> 
+  					<option value="2">Multiple Choice</option> 
+  					<option value="3">True/False</option> 
+				</select> 
+			</center>
+		</div>
+
+		<div id="hidden-div" class="Short-Answer" style="display:none;">
+			<center>
+				<h3> Enter short answer question </h3>
+				<form action="/my-handling-form-page" method="post">
+				    <div>
+				        <label for="question">Question:</label>
+				        <input type="text" id="question" name="user_question" />
+				    </div>
+				    <div>
+				        <label for="answer">Answer:</label>
+				        <textarea id="answer" name="user_answer"></textarea>
+				    </div>
+				    <div class="button">
+        				<button type="submit">Send your message</button>
+        				<button type="clear">clear</button>
+    				</div>
+				</form>
+			</center>
+		</div>
+
+		<div id="hidden-div" class="Multiple-Choice" style="display:none;"">
+			<center>
+				<h3> Enter multiple choice question: </h3>
+				<form>
+  					Question:
+  					<input type="text" name="firstname"><br>
+  					Choice 1:
+ 					<input type="text" name="lastname"><br>
+ 					Choice 2:
+ 					<input type="text" name="lastname">
+				</form>
+			</center>
+		</div>
+
+	</body>
+</html>
