@@ -49,8 +49,9 @@
 		<div id="hidden-short-answer" class="Short-Answer" style="display:none;">
 			<center>
 				<h3> Enter short answer question </h3>
-				<form action="/my-handling-form-page" method="post">
+				<form action="formhandler.php" method="post">
 				    <div>
+				    <div style="margin-bottom: 5px;">
 				        <label for="question">Question:</label>
 				        <input type="text" id="question" name="user_question" />
 				    </div>
@@ -59,8 +60,8 @@
 				        <textarea id="answer" name="user_answer"></textarea>
 				    </div>
 				    <div class="button">
-        				<button type="submit">Send your message</button>
-        				<button type="clear">clear</button>
+        				<button type="submit">Submit</button>
+        				<button type="reset">Clear</button>
     				</div>
 				</form>
 			</center>
@@ -70,17 +71,29 @@
 			<center>
 				<h3> Enter multiple choice question: </h3>
 				<form>
-  					<div>
+  					<div style="margin-bottom: 5px;">
 				        <label for="question">Question:</label>
 				        <input type="text" id="question" name="user_question" />
 				    </div>
-  					Choice 1:
- 					<input type="text" name="lastname"><br>
- 					Choice 2:
- 					<input type="text" name="lastname">
+				    <div style="margin-bottom: 5px;">
+	  					Choice 1:
+	 					<input type="text" name="answer"><br> 
+ 					</div>
+ 					<div style="margin-bottom: 5px;">
+	 					Choice 2:
+	 					<input type="text" name="answer">
+	 				</div>
+	 				<div style="margin-bottom: 5px;">
+	 					Choice 3:
+	 					<input type="text" name="answer">
+	 				</div>
+	 				<div style="margin-bottom: 5px;">
+	 					Choice 4:
+	 					<input type="text" name="answer">
+	 				</div>
  					<div class="button">
-        				<button type="submit">Send your question</button>
-        				<button type="clear">clear</button>
+        				<button type="submit">Submit</button>
+        				<button type="reset">Clear</button>
     				</div>
 				</form>
 			</center>
@@ -90,17 +103,17 @@
 			<center>
 				<h3> Enter True/False question: </h3>
 				<form>
-					<div>
+					<div style="margin-bottom: 5px;">
 						<label for="question">Question:</label>
 						<input type="text" id="question" name="user_question" />
 					</div>
-					<div>
+					<div style="margin-bottom: 5px;">
 						<input type="radio" name="truefalse" value="True" checked>True
 						<input type="radio" name="truefalse" value="False">False
 					</div>
-					<div class="button">
-        				<button type="submit">Send your question</button>
-        				<button type="clear">clear</button>
+					<div class="button;" style="margin-bottom: 5px;">
+        				<button type="submit">Submit</button>
+        				<button type="reset">Clear</button>
     				</div>
 				</form>
 			</center>
