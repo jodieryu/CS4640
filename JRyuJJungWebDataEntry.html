@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=windows-1252">
     	<title>CS 4640: Assignment 2 Web Data Entry</title>
 
-    	<script type="text/javascript">
+    	<script type="text/javascript"> //or script language = "javascript"
     		function showDiv(elem) {
     			if(elem.options[elem.selectedIndex].value == 1) {
     				document.getElementById('hidden-short-answer').style.display = "block";
@@ -26,6 +26,107 @@
     				document.getElementById('hidden-div').style.display = "none";
     			}
     		}
+    
+    		
+    		function CheckSAForm() {
+			   var ErrMsg = "";
+			   var NumErr = 0;
+
+			   var ques = document.shortAns.user_question;
+			   var ans = document.shortAns.user_answer;
+			   if (ques.value == "") 
+			   {
+			   	  NumErr++;
+			      ErrMsg += "\n" + NumErr + ") Please enter the question.";
+			   }
+			   if (ans.value == "")
+			      {
+			         NumErr++;
+			      	 ErrMsg += "\n" + NumErr + ") Please enter the answer.";
+			      }
+
+			   if (NumErr > 0)
+			   {
+			      alert (ErrMsg);
+			      return (false);
+			   }
+			   else
+			   {
+			      return (true);
+			   }
+			}
+			function CheckMCForm() {
+			   var ErrMsg = "";
+			   var NumErr = 0;
+
+			   var quesMC = document.multChoice.user_question;
+			   var answer1 = document.multChoice.answer1;
+			   var answer2 = document.multChoice.answer2;
+			   var answer3 = document.multChoice.answer3;
+			   var answer4 = document.multChoice.answer4;
+			   if (quesMC.value == "")
+			   {
+			      NumErr++;
+			      ErrMsg += "\n" + NumErr + ") Please enter the multiple choice question.";
+			   }
+			   if (answer1.value == "" || answer2.value == "" || answer3.value == "" || answer4.value == "")
+			   {
+			      NumErr++;
+			      ErrMsg += "\n" + NumErr + ") Please enter 4 multiple choice answers.";
+			   }
+			   // if (document.multChoice.answer1.value == "")
+			   // {
+			   //    NumErr++;
+			   //    ErrMsg += "\n" + NumErr + ") Please enter 4 multiple choice answers.";
+			   // }
+			   // if (document.multChoice.answer2.value == "")
+			   // {
+			   //    NumErr++;
+			   //    ErrMsg += "\n" + NumErr + ") Please enter 4 multiple choice answers.";
+			   // }
+			   // if (document.multChoice.answer3.value == "")
+			   // {
+			   //    NumErr++;
+			   //    ErrMsg += "\n" + NumErr + ") Please enter 4 multiple choice answers.";
+			   // }
+			   // if (document.multChoice.answer4.value == "")
+			   // {
+			   //    NumErr++;
+			   //    ErrMsg += "\n" + NumErr + ") Please enter 4 multiple choice answers.";
+			   // }
+
+			   if (NumErr > 0)
+			   {
+			      alert (ErrMsg);
+			      return (false);
+			   }
+			   else
+			   {
+			      return (true);
+			   }
+			}
+			function CheckTFForm() {
+			   var ErrMsg = "";
+			   var NumErr = 0;
+
+			   var quesTF = document.TF.user_question;
+			   if (quesTF.value == "")
+			   {
+			      NumErr++;
+			      ErrMsg += "\n" + NumErr + ") Please enter a true/false question.";
+			   }
+
+			   if (NumErr > 0)
+			   {
+			      alert (ErrMsg);
+			      return (false);
+			   }
+			   else
+			   {
+			      return (true);
+			   }
+			}
+
     	</script>
 	</head>
 
@@ -49,7 +150,7 @@
 		<div id="hidden-short-answer" class="Short-Answer" style="display:none;">
 			<center>
 				<h3> Enter short answer question </h3>
-				<form action="formhandler.php" method="post">
+				<form action="formhandler.php" method="post" name="shortAns" onSubmit="return (CheckSAForm())">
 				    <div>
 				    <div style="margin-bottom: 5px;">
 				        <label for="question">Question:</label>
@@ -70,26 +171,26 @@
 		<div id="hidden-multiple-choice" class="Multiple-Choice" style="display:none;">
 			<center>
 				<h3> Enter multiple choice question: </h3>
-				<form>
+				<form action="formhandler.php" method="post" name="multChoice" onSubmit="return (CheckMCForm())">
   					<div style="margin-bottom: 5px;">
 				        <label for="question">Question:</label>
 				        <input type="text" id="question" name="user_question" />
 				    </div>
 				    <div style="margin-bottom: 5px;">
 	  					Choice 1:
-	 					<input type="text" name="answer"><br> 
+	 					<input type="text" name="answer1"><br> 
  					</div>
  					<div style="margin-bottom: 5px;">
 	 					Choice 2:
-	 					<input type="text" name="answer">
+	 					<input type="text" name="answer2">
 	 				</div>
 	 				<div style="margin-bottom: 5px;">
 	 					Choice 3:
-	 					<input type="text" name="answer">
+	 					<input type="text" name="answer3">
 	 				</div>
 	 				<div style="margin-bottom: 5px;">
 	 					Choice 4:
-	 					<input type="text" name="answer">
+	 					<input type="text" name="answer4">
 	 				</div>
  					<div class="button">
         				<button type="submit">Submit</button>
@@ -102,7 +203,7 @@
 		<div id="hidden-true-false" class="True-False" style="display:none">
 			<center>
 				<h3> Enter True/False question: </h3>
-				<form>
+				<form action="formhandler.php" method="post" name="TF" onSubmit="return (CheckTFForm())">
 					<div style="margin-bottom: 5px;">
 						<label for="question">Question:</label>
 						<input type="text" id="question" name="user_question" />
