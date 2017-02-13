@@ -74,26 +74,6 @@
 			      NumErr++;
 			      ErrMsg += "\n" + NumErr + ") Please enter 4 multiple choice answers.";
 			   }
-			   // if (document.multChoice.answer1.value == "")
-			   // {
-			   //    NumErr++;
-			   //    ErrMsg += "\n" + NumErr + ") Please enter 4 multiple choice answers.";
-			   // }
-			   // if (document.multChoice.answer2.value == "")
-			   // {
-			   //    NumErr++;
-			   //    ErrMsg += "\n" + NumErr + ") Please enter 4 multiple choice answers.";
-			   // }
-			   // if (document.multChoice.answer3.value == "")
-			   // {
-			   //    NumErr++;
-			   //    ErrMsg += "\n" + NumErr + ") Please enter 4 multiple choice answers.";
-			   // }
-			   // if (document.multChoice.answer4.value == "")
-			   // {
-			   //    NumErr++;
-			   //    ErrMsg += "\n" + NumErr + ") Please enter 4 multiple choice answers.";
-			   // }
 
 			   if (NumErr > 0)
 			   {
@@ -104,6 +84,9 @@
 			   {
 			      return (true);
 			   }
+
+			   var tableAns
+
 			}
 			function CheckTFForm() {
 			   var ErrMsg = "";
@@ -125,6 +108,22 @@
 			   {
 			      return (true);
 			   }
+			}
+
+			function addRow()
+			{
+			  var oRow = document.getElementById("dyntbl1").insertRow(document.getElementById("dyntbl1").rows.length);
+			  oRow.onmouseover=function(){document.getElementById("dyntbl1").clickedRowIndex=this.rowIndex;};
+			  var oCell1 = oRow.insertCell(0);
+			  var oCell2 = oRow.insertCell(1);
+			  oCell1.innerHTML = "<input type=text name=answers[]>";
+			  oCell2.innerHTML = "<input type=button value=\" X \" onClick=\"delRow()\">";
+			  document.recalc();
+			}
+
+			function delRow()
+			{
+			  document.getElementById("dyntbl1").deleteRow(document.getElementById("dyntbl1").clickedRowIndex);
 			}
 
     	</script>
@@ -196,6 +195,20 @@
         				<button type="submit">Submit</button>
         				<button type="reset">Clear</button>
     				</div>
+    				<table id=dyntbl1 border=1>
+				      <tr>
+				        <th>Answer Choices</th>
+				        <th><input type=button value=" + " onClick="addRow()"></th>
+				      </tr>
+				      <tr onMouseOver="dyntbl1.clickedRowIndex=this.rowIndex">
+				        <td><input type=text name=answers[]></td>
+				        <td><input type=button name=dyntbl1_delRow value=" X " onClick="delRow()"></td>
+				      </tr>
+				      <tr onMouseOver="dyntbl1.clickedRowIndex=this.rowIndex">
+				        <td><input type=text name=answers[]></td>
+				        <td><input type=button name=dyntbl1_delRow value=" X " onClick="delRow()"></td>
+				      </tr>
+				    </table>
 				</form>
 			</center>
 		</div>
