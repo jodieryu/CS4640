@@ -1,0 +1,17 @@
+body {
+	background: url(/images/watercolor1.jpg) no-repeat center center fixed;
+	background-size: cover;
+}
+
+.questionType h2 {
+	font-family: "Raleway Dots";
+	font-weight: 100;
+	text-transform: uppercase;
+	font-size: 30px;
+}
+
+h3 {
+	font-family: "Raleway Dots";
+	font-weight: 100;
+	text-transform: uppercase;
+}
