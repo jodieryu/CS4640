@@ -15,12 +15,12 @@
       <td align="center"><string>Value</string></td>
     </tr>
     <tr>
-      <td width="20%">MAILTO</td> 
-      <td><?php echo $_POST['MAILTO']?></td>      
+      <td width="20%">Question</td> 
+      <td><?php echo $_POST['user_question']?></td>      
     </tr>
     <tr>
-      <td width="20%">FName</td> 
-      <td><?php echo $_POST['FName']?></td>      
+      <td width="20%">Answer</td> 
+      <td><?php echo $_POST['user_answer']?></td>      
     </tr>
     <tr>
       <td width="20%">LName</td>
