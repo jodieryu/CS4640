@@ -3,6 +3,10 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+		<!-- Link to Stylesheet -->
+		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+		<link href='//fonts.googleapis.com/css?family=Raleway Dots' rel='stylesheet'>
+
     	<title>CS 4640: Assignment 2 Web Data Entry</title>
 
     	<script type="text/javascript"> //or script language = "javascript"
@@ -35,7 +39,7 @@
 			    document.FieldName.Entry.value="Field: "+val;
 			    alert("hi");
 			 }
-    
+
     		function setFocusSA()
 		     {
 		        document.shortAns.user_question.focus();
@@ -137,7 +141,7 @@
 	<span style="color:#f00"><b>Jodie Ryu and Julie Jung</b></span>
 		<div class="questionType">
 			<center> 
-				<h2> Choose Question Type</h2> 
+				<h2> Choose Question Type </h2> 
 				<p> Choose the type of question you would like to create </p>
 
 				<strong><p>Question Type:</p></strong>
@@ -181,29 +185,33 @@
 				    </div>
 				    <div style="margin-bottom: 5px;">
 	  					Choice 1:
-	 					<input type="text" name="answer1"><br> 
+	 					<input type="text" name="answer1" id="mc"><br> 
  					</div>
  					<div style="margin-bottom: 5px;">
 	 					Choice 2:
-	 					<input type="text" name="answer2">
+	 					<input type="text" name="answer2" id="mc">
 	 				</div>
 	 				<div style="margin-bottom: 5px;">
 	 					Choice 3:
-	 					<input type="text" name="answer3">
+	 					<input type="text" name="answer3" id="mc">
 	 				</div>
 	 				<div style="margin-bottom: 5px;">
 	 					Choice 4:
-	 					<input type="text" name="answer4">
+	 					<input type="text" name="answer4" id="mc">
 	 				</div>
+
+	 				Answer:
+						<select id="answer" name="answer"> 
+		  					<option>Choose option</option>
+		  					<option>Choice 1</option> 
+		  					<option>Choice 2</option> 
+		  					<option>Choice 3</option> 
+		  					<option>Choice 4</option> 
+						</select> 
  					<div class="button">
         				<button type="submit">Submit</button>
         				<button type="reset">Clear</button>
     				</div>
-    
-			        <div style="margin-bottom: 5px;">
-	 					<input type="text" name="Entry" value="field name">
-	 				</div>
-       
 				</form>
 				<table>
 			          <tr>
