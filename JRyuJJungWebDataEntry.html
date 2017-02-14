@@ -34,12 +34,6 @@
     			}
     		}
 
-    		function ChangeFieldName (val)
-			 {
-			    document.FieldName.Entry.value="Field: "+val;
-			    alert("hi");
-			 }
-
     		function setFocusSA()
 		     {
 		        document.shortAns.user_question.focus();
@@ -89,6 +83,8 @@
 			   var answer2 = document.multChoice.answer2;
 			   var answer3 = document.multChoice.answer3;
 			   var answer4 = document.multChoice.answer4;
+			   var correctans = document.multChoice.answer;
+
 			   if (quesMC.value == "")
 			   {
 			      NumErr++;
@@ -98,6 +94,10 @@
 			   {
 			      NumErr++;
 			      ErrMsg += "\n" + NumErr + ") Please enter 4 multiple choice answers.";
+			   }
+			   if(correctans.value == 0) {
+			   	  NumErr++;
+			      ErrMsg += "\n" + NumErr + ") Please select the correct answer to the multiple choice question.";
 			   }
 
 			   if (NumErr > 0)
@@ -109,8 +109,6 @@
 			   {
 			      return (true);
 			   }
-
-			   var tableAns
 
 			}
 			function CheckTFForm() {
@@ -138,7 +136,7 @@
 	</head>
 
 	<body>
-	<span style="color:#f00"><b>Jodie Ryu and Julie Jung</b></span>
+	<span style="color:#04a59d"><b>Jodie Ryu and Julie Jung</b></span>
 		<div class="questionType">
 			<center> 
 				<h2> Choose Question Type </h2> 
@@ -202,25 +200,17 @@
 
 	 				Answer:
 						<select id="answer" name="answer"> 
-		  					<option>Choose option</option>
-		  					<option>Choice 1</option> 
-		  					<option>Choice 2</option> 
-		  					<option>Choice 3</option> 
-		  					<option>Choice 4</option> 
+		  					<option value="0">Choose option</option>
+		  					<option value="1">Choice 1</option> 
+		  					<option value="2">Choice 2</option> 
+		  					<option value="3">Choice 3</option> 
+		  					<option value="4">Choice 4</option> 
 						</select> 
  					<div class="button">
         				<button type="submit">Submit</button>
         				<button type="reset">Clear</button>
     				</div>
 				</form>
-				<table>
-			          <tr>
-			            <td>Row two: OnClick on buttons
-			            <td><button OnClick="ChangeFieldName('A')">A</a> </td>
-			            <td><button OnClick="ChangeFieldName('B')">B</a> </td>
-			            <td><button OnClick="ChangeFieldName('C')">C</a> </td>
-			          </tr>
-			        </table>
 			</center>
 		</div>
 

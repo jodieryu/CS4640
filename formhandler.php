@@ -19,61 +19,33 @@
       <td><?php echo $_POST['user_question']?></td>      
     </tr>
     <tr>
-      <td width="20%">Answer</td> 
+      <td width="20%">Short Answer</td> 
       <td><?php echo $_POST['user_answer']?></td>      
     </tr>
     <tr>
-      <td width="20%">LName</td>
-      <td><?php echo $_POST['LName']?></td>      
+      <td width="20%">MC Answer Choice 1</td>
+      <td><?php echo $_POST['answer1']?></td>      
     </tr>
     <tr>
-      <td width="20%">Major</td>
-      <td><?php echo $_POST['Major']?></td>      
+      <td width="20%">MC Answer Choice 2</td>
+      <td><?php echo $_POST['answer2']?></td>      
     </tr>
     <tr>
-      <td width="20%">OtherMajor</td>
-      <td><?php echo $_POST['OtherMajor']?></td>      
+      <td width="20%">MC Answer Choice 3</td>
+      <td><?php echo $_POST['answer3']?></td>      
     </tr>
     <tr>
-      <td width="20%">EmailAddress</td>
-      <td><?php echo $_POST['EmailAddress']?></td>      
+      <td width="20%">MC Answer Choice 4</td>
+      <td><?php echo $_POST['answer4']?></td>      
     </tr>
     <tr>
-      <td width="20%">Phone</td>
-      <td><?php echo $_POST['Phone']?></td>      
+      <td width="20%">Correct MC Answer Choice</td>
+      <td><?php echo $_POST['answer']?></td>      
     </tr>
     <tr>
-      <td width="20%">WebSiteURL</td>
-      <td><?php echo $_POST['WebSiteURL']?></td>      
-    </tr>
-    <tr>
-      <td width="20%">LevelHTML</td>
-      <td><?php echo $_POST['LevelHTML']?></td>      
-    </tr>
-    <tr>
-      <td width="20%">LevelJava</td>
-      <td><?php echo $_POST['LevelJava']?></td>      
-    </tr>
-    <tr>
-      <td width="20%">LevelJS</td>
-      <td><?php echo $_POST['LevelJS']?></td>      
-    </tr>
-    <tr>
-      <td width="20%">LevelServlets</td>
-      <td><?php echo $_POST['LevelServlets']?></td>      
-    </tr>
-    <tr>
-      <td width="20%">LevelJSP</td>
-      <td><?php echo $_POST['LevelJSP']?></td>      
-    </tr>
-    <tr>
-      <td width="20%">NewOrUpdate</td>
-      <td><?php echo $_POST['NewOrUpdate']?></td>      
-    </tr>
-    <tr>
-      <td width="20%">submit</td>
-      <td><?php echo $_POST['submit']?></td>      
-    </tr>    
+      <td width="20%">True/False Answer</td>
+      <td><?php echo $_POST['truefalse']?></td>      
+    </tr>  
   </table>
 
 </body>
