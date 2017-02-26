@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-=======
-Are you legal?
-
-,,,
-FalseHello
-answer
-,,,
->>>>>>> 98c5cbf70e1a4d66aa9098f8cfa6e71754da80fc
