@@ -48,9 +48,9 @@
     </tr>  
   </table>
   <div class="button">
-    <button type="submit">Confirm</button>
+    <input type="submit" value= "Submit"/>
     <!-- <a href="JRyuJJungSimpleFormProcessing.php" class="button" >Back</a> -->
-    <input onclick='javascript:window.history.back()' value='Back' type='button' />
+    <input onclick='javascript:window.history.back(-2)' value='Back' type='button' />
   </div>
 
 </body>
@@ -58,9 +58,17 @@
 
 
 <?php
-   
+
+   $myfile = fopen("/Applications/XAMPP/htdocs/cs4640proj/CS4640/data/datafile.txt", "w") or die("Unable to open file!");
+    $txt = "John Doe\n";
+    fwrite($myfile, $txt);
+    $txt = "Jane Doe\n";
+    fwrite($myfile, $txt);
+    fclose($myfile);
+
+
    // retrieve data from the form submission
-   $project_scores = extract_data();      
+   $project_scores = extract_data();     
    // print_array($project_scores);
 
    // prepare data to be written to file
@@ -82,10 +90,15 @@
    
    
    $filename = "/Applications/XAMPP/htdocs/cs4640proj/CS4640/data/datafile.txt";    
+
+   
    
    // if there is nothing, don't write it 
    if (!empty($data))
-      write_to_file($filename, $data);
+
+      // write_to_file($filename, $data);
+      // write_to_file($filename, "helloworld");
+      
 
 
 
@@ -101,6 +114,7 @@
                                           // Note: consider chmod 755 here but 777 when manually creating a file
                                           //    who is the owner?
       fputs($file, $data."\n");
+      // fputs($file, "hi");
       fclose($file);
    }
 
@@ -119,36 +133,35 @@
       {
          $data[$key] = $val;      // record all form data to an array
       }
-
-      $score = 0;
-      $total = 1;      // avoid divided by 0 exception
    
       // itearate a data array, access scores and totals for each project,
       // convert raw scores to percentages (which are used to determine the lowest project score)
     reset($data);
-      while ($curr = each($data))
-      {
-         $k = $curr["key"];
-         $v = $curr["value"];
+      // while ($curr = each($data))
+      // {
+      //   echo $curr["key"];
+      //   echo $curr["value"];
+      //    $k = $curr["key"];
+      //    $v = $curr["value"];
 
-         // strpos(string, substring) -- return index or position of the substring in string
-         //                              otherwise, return False if not found
-         if (strpos($k, "prj") >= 0)
-         {
-            if (strpos($k, "_total"))
-            {
-        $total = $v;
-        $score = ($score * 100) / $total ;  // percentage
-        $project_scores[$k] = $score;     // put percentage in array (final score for each project)
-      }
-      else
-      {
-        $score = $v;
-      }
-         }
-         else
-            echo "strpos = false";
-      }
+      //    // strpos(string, substring) -- return index or position of the substring in string
+      //    //                              otherwise, return False if not found
+      //    if (strpos($k, "prj") >= 0)
+      //    {
+      //       if (strpos($k, "_total"))
+      //       {
+      //   $total = $v;
+      //   $score = ($score * 100) / $total ;  // percentage
+      //   $project_scores[$k] = $score;     // put percentage in array (final score for each project)
+      // }
+      // else
+      // {
+      //   $score = $v;
+      // }
+      //    }
+      //    else
+      //       echo "strpos = false";
+      // }
     // print_array($project_scores);
     return $project_scores;
    }   
