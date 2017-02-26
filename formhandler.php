@@ -59,97 +59,42 @@
 
 <?php
    
-   // retrieve data from the form submission
-   $project_scores = extract_data();      
-   // print_array($project_scores);
-
-   // prepare data to be written to file
-   $data = "";
-   while ($curr = each($project_scores)) 
-   {
-      $k = $curr["key"];
-      $v = $curr["value"];
-      
-      if (!empty($data))
-         $data = $data.",";
-      
-      $data = (string)$data.(string)$v;     
-   }
+   $filename = "/Applications/XAMPP/htdocs/Assignment3/data/datafile.txt";    
    
-   # specify a path, using a file system, not a URL
-   # [server]    /cslab/home/<em>your-username</em>/public_html/<em>your-project</em>/data/filename.txt
-   # [local]     /XAMPP/htdocs/<em>your-project</em>/data/filename.txt
+    $question = $_POST['user_question'];
+    $answer = $_POST['user_answer'];
+
+    $fp = fopen($filename, "a");
+    $savestring = $question . "\n" . $answer . "\n";
+
+    fwrite($fp, $savestring);
+    fclose($fp);
+?>
+
+<?php
    
+   $filename = "/Applications/XAMPP/htdocs/Assignment3/data/datafile.txt";    
    
-   $filename = "/Applications/XAMPP/htdocs/cs4640proj/CS4640/data/datafile.txt";    
+    $MC_answer1 = $_POST['answer1'];
+    $MC_answer2 = $_POST['answer2'];
+    $MC_answer3 = $_POST['answer3'];
+    $MC_answer4 = $_POST['answer4'];
+    $MC_answer = $_POST['answer'];
+    $fp = fopen($filename, "a");
+    $savestring = $MC_answer1 . "," . $MC_answer2 . "," . $MC_answer3 . "," . $MC_answer4 . "\n" . $MC_answer;
+    fwrite($fp, $savestring);
+    fclose($fp);
+?>
+
+<?php
    
-   // if there is nothing, don't write it 
-   if (!empty($data))
-      write_to_file($filename, $data);
-
-
-
-  function write_to_file($filename, $data)
-   {
-//       if (!file_exists($filename))
-//          echo "File does not exist";
-//       else
-//          echo "File exists";
-      
-      $file = fopen($filename, "a");      // if the file doesn't exist, create a new file
-      chmod($filename, 0775);             // set permission. 
-                                          // Note: consider chmod 755 here but 777 when manually creating a file
-                                          //    who is the owner?
-      fputs($file, $data."\n");
-      fclose($file);
-   }
-
-
-     /* Retrieve data from the form submission,
-    * Convert project scores to percentages
-    * Return an array of project scores
-    */
-   function extract_data()
-   {
-      $data = array();
-    $project_scores = array();
-
-      // To retrieve all param-value pairs from a post object
-      foreach ($_POST as $key => $val)
-      {
-         $data[$key] = $val;      // record all form data to an array
-      }
-
-      $score = 0;
-      $total = 1;      // avoid divided by 0 exception
+   $filename = "/Applications/XAMPP/htdocs/Assignment3/data/datafile.txt";    
    
-      // itearate a data array, access scores and totals for each project,
-      // convert raw scores to percentages (which are used to determine the lowest project score)
-    reset($data);
-      while ($curr = each($data))
-      {
-         $k = $curr["key"];
-         $v = $curr["value"];
+    $truefalse = $_POST['truefalse'];
 
-         // strpos(string, substring) -- return index or position of the substring in string
-         //                              otherwise, return False if not found
-         if (strpos($k, "prj") >= 0)
-         {
-            if (strpos($k, "_total"))
-            {
-        $total = $v;
-        $score = ($score * 100) / $total ;  // percentage
-        $project_scores[$k] = $score;     // put percentage in array (final score for each project)
-      }
-      else
-      {
-        $score = $v;
-      }
-         }
-         else
-            echo "strpos = false";
-      }
-    // print_array($project_scores);
-    return $project_scores;
-   }   
+    $fp = fopen($filename, "a");
+    $savestring = $truefalse;
+
+    fwrite($fp, $savestring);
+    fclose($fp);
 ?>
