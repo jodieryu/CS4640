@@ -47,6 +47,109 @@
       <td><?php echo $_POST['truefalse']?></td>      
     </tr>  
   </table>
+  <div class="button">
+    <button type="submit">Confirm</button>
+    <!-- <a href="JRyuJJungSimpleFormProcessing.php" class="button" >Back</a> -->
+    <input onclick='javascript:window.history.back()' value='Back' type='button' />
+  </div>
 
 </body>
 </html> 
+
+
+<?php
+   
+   // retrieve data from the form submission
+   $project_scores = extract_data();      
+   // print_array($project_scores);
+
+   // prepare data to be written to file
+   $data = "";
+   while ($curr = each($project_scores)) 
+   {
+      $k = $curr["key"];
+      $v = $curr["value"];
+      
+      if (!empty($data))
+         $data = $data.",";
+      
+      $data = (string)$data.(string)$v;     
+   }
+   
+   # specify a path, using a file system, not a URL
+   # [server]    /cslab/home/<em>your-username</em>/public_html/<em>your-project</em>/data/filename.txt
+   # [local]     /XAMPP/htdocs/<em>your-project</em>/data/filename.txt
+   
+   
+   $filename = "/Applications/XAMPP/htdocs/cs4640proj/CS4640/data/datafile.txt";    
+   
+   // if there is nothing, don't write it 
+   if (!empty($data))
+      write_to_file($filename, $data);
+
+
+
+  function write_to_file($filename, $data)
+   {
+//       if (!file_exists($filename))
+//          echo "File does not exist";
+//       else
+//          echo "File exists";
+      
+      $file = fopen($filename, "a");      // if the file doesn't exist, create a new file
+      chmod($filename, 0775);             // set permission. 
+                                          // Note: consider chmod 755 here but 777 when manually creating a file
+                                          //    who is the owner?
+      fputs($file, $data."\n");
+      fclose($file);
+   }
+
+
+     /* Retrieve data from the form submission,
+    * Convert project scores to percentages
+    * Return an array of project scores
+    */
+   function extract_data()
+   {
+      $data = array();
+    $project_scores = array();
+
+      // To retrieve all param-value pairs from a post object
+      foreach ($_POST as $key => $val)
+      {
+         $data[$key] = $val;      // record all form data to an array
+      }
+
+      $score = 0;
+      $total = 1;      // avoid divided by 0 exception
+   
+      // itearate a data array, access scores and totals for each project,
+      // convert raw scores to percentages (which are used to determine the lowest project score)
+    reset($data);
+      while ($curr = each($data))
+      {
+         $k = $curr["key"];
+         $v = $curr["value"];
+
+         // strpos(string, substring) -- return index or position of the substring in string
+         //                              otherwise, return False if not found
+         if (strpos($k, "prj") >= 0)
+         {
+            if (strpos($k, "_total"))
+            {
+        $total = $v;
+        $score = ($score * 100) / $total ;  // percentage
+        $project_scores[$k] = $score;     // put percentage in array (final score for each project)
+      }
+      else
+      {
+        $score = $v;
+      }
+         }
+         else
+            echo "strpos = false";
+      }
+    // print_array($project_scores);
+    return $project_scores;
+   }   
+?>
