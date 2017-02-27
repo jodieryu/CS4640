@@ -1,42 +1,45 @@
-
-
-how are u?
+how are you?
 good.
 A: 
 
 
 
 
-lsdkfjkl
-
-A: hi
+hi
+A: hello
 bye
+maybe
+yes
+2
+sdfdsf
+sdfasdf
+A: 
+
+
+
+
 hello
-no
-4
-how are u?
-good.
-A: 
-
-
-
-
-i am julie.
-A: 
-
-
-
-
-Falsei am julie.
-A: 
-
-
-
-
-Truejulie jung
 hi
 A: 
 
 
 
 
+whats ur name?
+A: julie
+jodie
+hello
+no
+1
+whats ur name?
+A: bob
+ashley
+jonas
+mcdonalds
+3
+whats ur address??????
+A: bob
+ashley
+jonas
+mcdonalds
+3

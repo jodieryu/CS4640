@@ -34,6 +34,24 @@
     			}
     		}
 
+    		function showPopulatedData() {
+    			if(document.shortAns.user_answer.value != "") {
+    				document.getElementById('hidden-short-answer').style.display = "block";
+    				document.getElementById('hidden-multiple-choice').style.display = "none";
+    				document.getElementById('hidden-true-false').style.display = "none";
+    			}
+    			else if(document.multChoice.answer1.value != "") {
+    				document.getElementById('hidden-multiple-choice').style.display = "block";
+    				document.getElementById('hidden-short-answer').style.display = "none";
+    				document.getElementById('hidden-true-false').style.display = "none";
+    			}
+    			else if(document.TF.user_question.value != "") {
+    				document.getElementById('hidden-true-false').style.display = "block";
+    				document.getElementById('hidden-short-answer').style.display = "none";
+    				document.getElementById('hidden-multiple-choice').style.display = "none";
+    			}
+    		}
+
     		function setFocusSA()
 		     {
 		        document.shortAns.user_question.focus();
@@ -135,7 +153,7 @@
     	</script>
 	</head>
 
-	<body>
+	<body onload="showPopulatedData()">
 	<span style="color:#04a59d"><b>Jodie Ryu and Julie Jung</b></span>
 		<div class="questionType">
 			<center> 
