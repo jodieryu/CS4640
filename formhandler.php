@@ -71,10 +71,18 @@
     $question = $_POST['user_question'];
     $answer = $_POST['user_answer'];
     $fp = fopen($filename, "a");
-    $savestring = $question . "\n" . $answer . "\n";
-
-    fwrite($fp, $savestring);
-    fclose($fp);
+    $savestring = $question . "\n";
+    $savestring2 = $question . "\n" . $answer . "\n";
+    if($answer == "") {
+      fwrite($fp, $savestring);
+      fclose($fp);
+      echo "just question";
+    }
+    else {
+      fwrite($fp, $savestring2);
+      fclose($fp);
+      echo "question and answer";
+    }
 ?>
 
 <?php
