@@ -79,7 +79,7 @@
     $MC_answer4 = $_POST['answer4'];
     $MC_answer = $_POST['answer'];
     $fp = fopen($filename, "a");
-    $savestring = $MC_answer1 . "," . $MC_answer2 . "," . $MC_answer3 . "," . $MC_answer4 . "\n" . $MC_answer;
+    $savestring = "A: " . $MC_answer1 . "\n" . $MC_answer2 . "\n" . $MC_answer3 . "\n" . $MC_answer4 . "\n" . $MC_answer . "\n" ;
     fwrite($fp, $savestring);
     fclose($fp);
 ?>
