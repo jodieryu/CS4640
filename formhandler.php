@@ -72,16 +72,14 @@
     $answer = $_POST['user_answer'];
     $fp = fopen($filename, "a");
     $savestring = $question . "\n";
-    $savestring2 = $question . "\n" . $answer . "\n";
+    $savestring_shortans = $question . "\n" . $answer . "\n";
     if($answer == "") {
-      fwrite($fp, $savestring);
       fclose($fp);
-      echo "just question";
     }
     else {
-      fwrite($fp, $savestring2);
+      fwrite($fp, $savestring);
+      fwrite($fp, $savestring_shortans);
       fclose($fp);
-      echo "question and answer";
     }
 ?>
 
@@ -95,9 +93,16 @@
     $MC_answer4 = $_POST['answer4'];
     $MC_answer = $_POST['answer'];
     $fp = fopen($filename, "a");
-    $savestring = "A: " . $MC_answer1 . "\n" . $MC_answer2 . "\n" . $MC_answer3 . "\n" . $MC_answer4 . "\n" . $MC_answer . "\n" ;
-    fwrite($fp, $savestring);
-    fclose($fp);
+    $savestring_multiplechoice = "1: " . $MC_answer1 . "\n" . "2: ". $MC_answer2 . "\n" . "3: ".$MC_answer3 . "\n" . "4: " . $MC_answer4 . "\n" . "Correct answer: " . $MC_answer . "\n" ;
+
+    if ($MC_answer1 == "") {
+      fclose($fp);
+    }
+    else {
+      fwrite($fp, $savestring);
+      fwrite($fp, $savestring_multiplechoice);
+      fclose($fp);
+    }
 ?>
 
 <?php
@@ -105,11 +110,16 @@
    $filename = "/Applications/XAMPP/htdocs/cs4640proj/CS4640/data/datafile.txt";    
    
     $truefalse = $_POST['truefalse'];
-
     $fp = fopen($filename, "a");
-    $savestring = $truefalse;
+    $savestring_tf = $truefalse . "\n";
 
-    fwrite($fp, $savestring);
-    fclose($fp);
+    if ($truefalse == "") {
+      fclose($fp);
+    }
+    else {
+      fwrite($fp, $savestring);
+      fwrite($fp, $savestring_tf);
+      fclose($fp);
+    }
 ?>
 
