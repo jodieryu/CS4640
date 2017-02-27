@@ -1,6 +1,14 @@
 <html>
 <head>
   <title>Simple form handler</title>
+  <script type="text/javascript">
+     function alertSubmit() {
+        alert("You have successfully submitted your question!")
+       
+     }     
+     
+     // end script hiding -->
+   </script>
 </head>
 
 <body bgcolor="#EEEEEE">
@@ -48,9 +56,9 @@
     </tr>  
   </table>
   <div class="button">
-    <input type="submit" value= "Submit"/>
+    <input type="submit" value= "Submit" onclick="alertSubmit()"/> 
     <!-- <a href="JRyuJJungSimpleFormProcessing.php" class="button" >Back</a> -->
-    <input onclick='javascript:window.history.back(-2)' value='Back' type='button' />
+    <input onclick='javascript:window.history.back()' value='Back' type='button' />
   </div>
 
 </body>
