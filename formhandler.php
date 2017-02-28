@@ -66,7 +66,7 @@
 
 
 <?php
-   $filename = "/Applications/XAMPP/htdocs/cs4640proj/CS4640/data/datafile.txt";    
+   $filename = "data/datafile.txt";    
    
     $question = $_POST['user_question'];
     $answer = $_POST['user_answer'];
@@ -77,7 +77,6 @@
       fclose($fp);
     }
     else {
-      fwrite($fp, $savestring);
       fwrite($fp, $savestring_shortans);
       fclose($fp);
     }
@@ -85,7 +84,7 @@
 
 <?php
    
-   $filename = "/Applications/XAMPP/htdocs/cs4640proj/CS4640/data/datafile.txt";    
+   $filename = "data/datafile.txt";    
    
     $MC_answer1 = $_POST['answer1'];
     $MC_answer2 = $_POST['answer2'];
@@ -107,7 +106,7 @@
 
 <?php
    
-   $filename = "/Applications/XAMPP/htdocs/cs4640proj/CS4640/data/datafile.txt";    
+   $filename = "data/datafile.txt";    
    
     $truefalse = $_POST['truefalse'];
     $fp = fopen($filename, "a");

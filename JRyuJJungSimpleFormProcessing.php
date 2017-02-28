@@ -50,6 +50,9 @@
     				document.getElementById('hidden-short-answer').style.display = "none";
     				document.getElementById('hidden-multiple-choice').style.display = "none";
     			}
+    			else {
+    				document.getElementById('hidden-div').style.display = "none";
+    			}
     		}
 
     		function setFocusSA()
