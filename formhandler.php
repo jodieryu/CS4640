@@ -72,7 +72,7 @@
     $answer = $_POST['user_answer'];
     $fp = fopen($filename, "a");
     $savestring = $question . "\n";
-    $savestring_shortans = $question . "\n" . $answer . "\n";
+    $savestring_shortans = $question . "; " . $answer;
     if($answer == "") {
       fclose($fp);
     }
@@ -92,7 +92,7 @@
     $MC_answer4 = $_POST['answer4'];
     $MC_answer = $_POST['answer'];
     $fp = fopen($filename, "a");
-    $savestring_multiplechoice = "1: " . $MC_answer1 . "\n" . "2: ". $MC_answer2 . "\n" . "3: ".$MC_answer3 . "\n" . "4: " . $MC_answer4 . "\n" . "Correct answer: " . $MC_answer . "\n" ;
+    $savestring_multiplechoice = "1: " . $MC_answer1 . ", " . "2: ". $MC_answer2 . ", " . "3: ".$MC_answer3 . ", " . "4: " . $MC_answer4 . "; " . "Correct answer: " . $MC_answer ;
 
     if ($MC_answer1 == "") {
       fclose($fp);
@@ -110,7 +110,7 @@
    
     $truefalse = $_POST['truefalse'];
     $fp = fopen($filename, "a");
-    $savestring_tf = $truefalse . "\n";
+    $savestring_tf = $truefalse ;
 
     if ($truefalse == "") {
       fclose($fp);
